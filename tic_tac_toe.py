@@ -31,11 +31,13 @@ def get_computer_move (board, player):
     if board[move] == ' ':
       board[move] = player
       break
-
 def check_win (board, player):
   for i in range(3):
-    if board[i] == board[i+1] == board[i+2] == player or board[i] == board[i+3] == board[i+6] == player:
+    if board[i] == board[i+3] == board[i+6] == player:
       return True
+  for j in range(0, 7, 3):
+     if board[j] == board[j+1] == board[j+2] == player:
+       return True
   if board[0] == board[4] == board[8] == player or board[2] == board[4] == board[6] == player:
     return True
 
